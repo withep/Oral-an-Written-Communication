@@ -1,0 +1,141 @@
+{
+  "1": [
+    {
+      "question": "What is 5 + 3?",
+      "options": { "A": "6", "B": "7", "C": "8", "D": "9" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 10 - 4?",
+      "options": { "A": "5", "B": "6", "C": "7", "D": "8" },
+      "answer": "B"
+    },
+    {
+      "question": "What is 2 + 9?",
+      "options": { "A": "10", "B": "11", "C": "12", "D": "13" },
+      "answer": "B"
+    },
+    {
+      "question": "What is 7 - 5?",
+      "options": { "A": "1", "B": "2", "C": "3", "D": "4" },
+      "answer": "B"
+    },
+    {
+      "question": "What is 4 + 6?",
+      "options": { "A": "9", "B": "10", "C": "11", "D": "12" },
+      "answer": "B"
+    }
+  ],
+
+  "2": [
+    {
+      "question": "What is 6 × 4?",
+      "options": { "A": "20", "B": "22", "C": "24", "D": "26" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 15 ÷ 3?",
+      "options": { "A": "3", "B": "4", "C": "5", "D": "6" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 9 × 5?",
+      "options": { "A": "40", "B": "45", "C": "50", "D": "55" },
+      "answer": "B"
+    },
+    {
+      "question": "What is 20 ÷ 4?",
+      "options": { "A": "4", "B": "5", "C": "6", "D": "8" },
+      "answer": "B"
+    },
+    {
+      "question": "What is 8 × 3?",
+      "options": { "A": "21", "B": "22", "C": "24", "D": "26" },
+      "answer": "C"
+    }
+  ],
+
+  "3": [
+    {
+      "question": "What is 2³?",
+      "options": { "A": "4", "B": "6", "C": "8", "D": "9" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 9²?",
+      "options": { "A": "18", "B": "81", "C": "72", "D": "90" },
+      "answer": "B"
+    },
+    {
+      "question": "What is 12 ÷ 3 × 2?",
+      "options": { "A": "6", "B": "8", "C": "10", "D": "12" },
+      "answer": "D"
+    },
+    {
+      "question": "What is 5²?",
+      "options": { "A": "10", "B": "20", "C": "25", "D": "30" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 18 ÷ 6?",
+      "options": { "A": "2", "B": "3", "C": "4", "D": "6" },
+      "answer": "B"
+    }
+  ],
+
+  "4": [
+    {
+      "question": "Solve: 3x = 15. What is x?",
+      "options": { "A": "3", "B": "4", "C": "5", "D": "6" },
+      "answer": "C"
+    },
+    {
+      "question": "Solve: x + 7 = 12",
+      "options": { "A": "3", "B": "4", "C": "5", "D": "6" },
+      "answer": "B"
+    },
+    {
+      "question": "Solve: 2x + 4 = 10",
+      "options": { "A": "2", "B": "3", "C": "4", "D": "5" },
+      "answer": "B"
+    },
+    {
+      "question": "Solve: x - 9 = 1",
+      "options": { "A": "8", "B": "9", "C": "10", "D": "11" },
+      "answer": "C"
+    },
+    {
+      "question": "Solve: 5x = 25",
+      "options": { "A": "3", "B": "4", "C": "5", "D": "6" },
+      "answer": "C"
+    }
+  ],
+
+  "5": [
+    {
+      "question": "What is the square root of 144?",
+      "options": { "A": "10", "B": "11", "C": "12", "D": "13" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 7² + 2?",
+      "options": { "A": "49", "B": "50", "C": "51", "D": "52" },
+      "answer": "C"
+    },
+    {
+      "question": "What is 3³?",
+      "options": { "A": "6", "B": "9", "C": "18", "D": "27" },
+      "answer": "D"
+    },
+    {
+      "question": "What is 100 ÷ 4 + 5?",
+      "options": { "A": "25", "B": "30", "C": "35", "D": "40" },
+      "answer": "B"
+    },
+    {
+      "question": "What is the square root of 169?",
+      "options": { "A": "11", "B": "12", "C": "13", "D": "14" },
+      "answer": "C"
+    }
+  ]
+}
