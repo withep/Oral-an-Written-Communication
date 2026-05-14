@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRTUAL MATHS QUESTION BANK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="nav-bar">
+        <div class="left-nav">
+            <button id="theme-btn" onclick="toggleTheme()">CHANGE THEME</button>
+        </div>
+        <div class="right-nav">
+            <div id="auth-buttons" class="auth-flex">
+                <button onclick="openModal('register')">SIGN UP</button>
+                <button onclick="openModal('login')">LOGIN</button>
+            </div>
+            <div id="user-menu" class="dropdown" style="display: none;">
+                <button id="user-name-btn" onclick="toggleDropdown()" class="dropbtn">USER</button>
+                <div id="dropdown-content" class="dropdown-content">
+                    <button id="teacher-classes-menu-btn" style="display: none;" onclick="showMyCreatedClasses()">MY CLASSES</button>
+                    <button onclick="logout()">LOGOUT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="register-section" style="display: none;">
+                <div id="reg-step-1">
+                    <h2>SIGN UP TYPE</h2>
+                    <button onclick="showRegisterFields('teacher')">TEACHER SIGN UP</button>
+                    <button onclick="showRegisterFields('student')">STUDENT SIGN UP</button>
+                </div>
+                <div id="reg-step-2" style="display: none;">
+                    <h2 id="reg-title">SIGN UP FORM</h2>
+                    <input type="text" id="reg-name" placeholder="Name">
+                    <input type="text" id="reg-surname" placeholder="Surname">
+                    <input type="text" id="reg-username" placeholder="Username">
+                    <input type="password" id="reg-password" placeholder="Password">
+                    <div id="school-field" style="display: none;">
+                        <input type="text" id="reg-school" placeholder="Your School">
+                    </div>
+                    <button onclick="handleRegister()">CREATE ACCOUNT</button>
+                    <button onclick="resetRegModal()" class="back-link">Back</button>
+                </div>
+            </div>
+            <div id="login-section" style="display: none;">
+                <div id="login-step-1">
+                    <h2>LOGIN TYPE</h2>
+                    <button onclick="showLoginFields('teacher')">TEACHER LOGIN</button>
+                    <button onclick="showLoginFields('student')">STUDENT LOGIN</button>
+                </div>
+                <div id="login-step-2" style="display: none;">
+                    <h2 id="login-title">LOGIN</h2>
+                    <input type="text" id="username" placeholder="Username">
+                    <input type="password" id="password" placeholder="Password">
+                    <button onclick="handleAuth()">LOGIN</button>
+                    <button onclick="resetLoginModal()" class="back-link">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <div id="screen-class">
+            <h1>VIRTUAL MATHS QUESTION BANK</h1>
+            <p>Choose your class and start the quiz!</p>
+            <div id="main-class-list" class="button-list"></div>
+            <div id="student-special-area" style="display: none; margin-top: 20px; border-top: 2px solid var(--border-color); padding-top: 10px;">
+                <h3>MY HOMEWORKS / MY CLASSES</h3>
+                <div id="student-classes-list" class="button-list"></div>
+            </div>
+            <div id="teacher-controls" style="display: none; margin-top: 20px; border-top: 2px solid var(--border-color); padding-top: 10px;">
+                <button onclick="showScreen('screen-add-question')">+ ADD NEW QUESTION</button>
+                <button onclick="showScreen('screen-create-class')">+ CREATE NEW CLASS</button>
+            </div>
+        </div>
+
+        <div id="screen-difficulty" style="display: none;">
+            <h2 id="diff-class-title">CLASS</h2>
+            <div class="button-list">
+                <button onclick="startQuiz('easy')" style="border-color: #2ecc71;">EASY</button>
+                <button onclick="startQuiz('medium')" style="border-color: #f1c40f;">MEDIUM</button>
+                <button onclick="startQuiz('hard')" style="border-color: #e74c3c;">HARD</button>
+            </div>
+            <button class="back-link" onclick="showScreen('screen-class')">← BACK</button>
+        </div>
+
+        <div id="screen-quiz" style="display: none;">
+            <div class="quiz-header">
+                <span id="score-correct" style="color: #2ecc71;">D: 0</span>
+                <span id="quiz-timer">1/5</span>
+                <span id="score-wrong" style="color: #e74c3c;">Y: 0</span>
+            </div>
+            <div id="quiz-container">
+                <h3 id="question-text">Soru metni...</h3>
+                <div id="answer-buttons" class="button-list quiz-answers"></div>
+            </div>
+            <div class="quiz-nav">
+                <button id="prev-btn" onclick="prevQuestion()">BACK</button>
+                <button onclick="showResults()" class="accent-btn">FINISH</button>
+                <button id="next-btn" onclick="nextQuestion()">NEXT</button>
+            </div>
+        </div>
+
+        <div id="screen-result" style="display: none;">
+            <h2>TEST RESULTS</h2>
+            <div class="result-box">
+                <p id="final-correct" style="color: #2ecc71; font-weight: bold;"></p>
+                <p id="final-wrong" style="color: #e74c3c; font-weight: bold;"></p>
+                <h3 id="final-total"></h3>
+            </div>
+            <button class="back-link" onclick="showScreen('screen-class')">BACK TO MAIN MENU</button>
+        </div>
+
+        <div id="screen-manage-class" style="display: none;">
+            <h2 id="manage-class-title">CLASS MANAGEMENT</h2>
+            <div id="manage-options" class="button-list">
+                <button onclick="showSubSection('section-questions')">QUESTIONS</button>
+                <button onclick="showSubSection('section-students')">STUDENTS</button>
+                <button class="back-link" onclick="showScreen('screen-teacher-classes')">← BACK</button>
+            </div>
+            <div id="section-questions" style="display: none;">
+                <div id="class-questions-display" class="data-display-questions"></div>
+                <button class="back-link" onclick="backToOptions()">← BACK</button>
+            </div>
+            <div id="section-students" style="display: none;">
+                <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+                    <input type="text" id="new-student-username" placeholder="Student Name">
+                    <button onclick="registerStudentToClass()" style="width: auto; padding: 0 10px;">ADD</button>
+                </div>
+                <div id="class-students-display" class="data-display"></div>
+                <button class="back-link" onclick="backToOptions()">← BACK</button>
+            </div>
+        </div>
+
+        <div id="screen-create-class" style="display: none;">
+            <h3>NEW GRADE</h3>
+            <input type="text" id="new-class-name" placeholder="Grade Name">
+            <button onclick="createNewClass()">CREATE</button>
+            <button class="back-link" onclick="showScreen('screen-class')">CANCEL</button>
+        </div>
+
+        <div id="screen-add-question" style="display: none;">
+            <h3>NEW QUESTION</h3>
+            <select id="target-class-select"></select>
+            <textarea id="add-q-text" placeholder="WRITE YOUR QUESTION OR UPLOAD YOUR QUESTION IMAGE..."></textarea>
+            <input type="text" id="opt-a" placeholder="A">
+            <input type="text" id="opt-b" placeholder="B">
+            <input type="text" id="opt-c" placeholder="C">
+            <input type="text" id="opt-d" placeholder="D">
+            <select id="correct-answer-select">
+                <option value="A">CORRECT: A</option><option value="B">CORRECT: B</option>
+                <option value="C">CORRECT: C</option><option value="D">CORRECT: D</option>
+            </select>
+            <button onclick="saveQuestionToSystem()">UPLOAD TO SYSTEM</button>
+            <button class="back-link" onclick="showScreen('screen-class')">CANCEL</button>
+        </div>
+
+        <div id="screen-teacher-classes" style="display: none;">
+            <h3>MY CLASSES</h3>
+            <div id="teacher-classes-list" class="button-list"></div>
+            <button class="back-link" onclick="showScreen('screen-class')">← BACK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
